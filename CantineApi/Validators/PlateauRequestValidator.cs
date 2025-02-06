@@ -1,4 +1,4 @@
-using CantineApi.Models.Requests;
+using CantineCore.Models.Requests;
 using FluentValidation;
 
 namespace CantineApi.Validators;

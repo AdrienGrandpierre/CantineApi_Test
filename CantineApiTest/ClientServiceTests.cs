@@ -1,4 +1,4 @@
-using CantineApi.Services;
+using CantineCore.Services;
 
 namespace CantineApiTest;
 

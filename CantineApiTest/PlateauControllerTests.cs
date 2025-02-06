@@ -1,8 +1,8 @@
 using System.Net;
 using CantineApi.Controllers;
-using CantineApi.Models;
-using CantineApi.Models.Requests;
-using CantineApi.Services;
+using CantineCore.Models;
+using CantineCore.Models.Requests;
+using CantineCore.Services;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
@@ -39,7 +39,7 @@ public class PlateauControllerTests
                 PriseEnCharge = 50m
             };
 
-            _plateauServiceMock.Setup(service => service.CreatePlateau(request.ClientId, request.ProduitRequests)).Returns(plateau);
+            _plateauServiceMock.Setup(service => service.CreatePlateau(request)).Returns(plateau);
 
             // Act
             var result = _controller.CreatePlateau(request);

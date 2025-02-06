@@ -1,4 +1,4 @@
-namespace CantineApi.Models;
+namespace CantineCore.Models;
 
 public class Client
 {

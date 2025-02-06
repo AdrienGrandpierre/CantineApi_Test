@@ -1,6 +1,6 @@
-using CantineApi.Models;
-using CantineApi.Models.Requests;
-using CantineApi.Services;
+using CantineCore.Models;
+using CantineCore.Models.Requests;
+using CantineCore.Services;
 using Moq;
 
 namespace CantineApiTest;
@@ -32,7 +32,7 @@ public class PlateauServiceTests
             };
 
             // Act
-            var result = _plateauService.CreatePlateau(1, produitRequests);
+            var result = _plateauService.CreatePlateau(new PlateauRequest {ClientId = 1, ProduitRequests  = produitRequests});
 
             // Assert
             Assert.NotNull(result);
@@ -58,7 +58,7 @@ public class PlateauServiceTests
             };
 
             // Act & Assert
-            var exception = Assert.Throws<Exception>(() => _plateauService.CreatePlateau(1, produitRequests));
+            var exception = Assert.Throws<Exception>(() => _plateauService.CreatePlateau(new PlateauRequest {ClientId = 1, ProduitRequests  = produitRequests}));
             Assert.Equal("Crédit insuffisant pour finaliser la commande.", exception.Message);
         }
 
@@ -78,7 +78,7 @@ public class PlateauServiceTests
             };
 
             // Act & Assert
-            var exception = Assert.Throws<Exception>(() => _plateauService.CreatePlateau(1, produitRequests));
+            var exception = Assert.Throws<Exception>(() => _plateauService.CreatePlateau(new PlateauRequest {ClientId = 1, ProduitRequests  = produitRequests}));
             Assert.Equal("Produit avec type 999 non trouvé", exception.Message);
         }
 
@@ -98,7 +98,7 @@ public class PlateauServiceTests
             };
 
             // Act
-            var result = _plateauService.CreatePlateau(1, produitRequests);
+            var result = _plateauService.CreatePlateau(new PlateauRequest {ClientId = 1, ProduitRequests  = produitRequests});
 
             // Assert
             Assert.NotNull(result);

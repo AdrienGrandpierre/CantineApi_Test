@@ -1,4 +1,4 @@
-namespace CantineApi.Models.Requests;
+namespace CantineCore.Models.Requests;
 
 public class ProduitRequest
 {

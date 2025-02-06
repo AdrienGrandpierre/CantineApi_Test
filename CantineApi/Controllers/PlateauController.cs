@@ -1,6 +1,6 @@
-using CantineApi.Models;
-using CantineApi.Models.Requests;
-using CantineApi.Services;
+using CantineCore.Models;
+using CantineCore.Models.Requests;
+using CantineCore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CantineApi.Controllers;
@@ -25,7 +25,7 @@ public class PlateauController : ControllerBase
     {
         try
         {
-            var plateau = _plateauService.CreatePlateau(request.ClientId, request.ProduitRequests);
+            var plateau = _plateauService.CreatePlateau(request);
 
             return Ok(new
             {

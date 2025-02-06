@@ -1,8 +1,7 @@
-using CantineApi.Controllers;
-using CantineApi.Models;
-using CantineApi.Models.Requests;
+using CantineCore.Models;
+using CantineCore.Models.Requests;
 
-namespace CantineApi.Services;
+namespace CantineCore.Services;
 
 public class PlateauService : IPlateauService
     {
@@ -29,12 +28,12 @@ public class PlateauService : IPlateauService
             new Produit { Type = ProduitType.DessertSupplémentaire, Price = 3 }
         };
 
-        public PlateauRepas CreatePlateau(int clientId, List<ProduitRequest> produitRequests)
+        public PlateauRepas CreatePlateau(PlateauRequest plateauRequest)
         {
-            var client = _clientService.GetClientById(clientId);
+            var client = _clientService.GetClientById(plateauRequest.ClientId);
 
             // Récupérer les produits du plateau
-            var produits = produitRequests
+            var produits = plateauRequest.ProduitRequests
                 .Select(request => _produits.FirstOrDefault(p => p.Type == request.Type)
                     ?? throw new Exception($"Produit avec type {request.Type} non trouvé"))
                 .ToList();

@@ -1,5 +1,5 @@
-using CantineApi.Models;
-using CantineApi.Services;
+using CantineCore.Models;
+using CantineCore.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CantineApi.Controllers;

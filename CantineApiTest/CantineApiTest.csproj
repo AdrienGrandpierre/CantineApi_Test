@@ -11,6 +11,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\CantineApi\CantineApi.csproj" />
+        <ProjectReference Include="..\CantineCore\CantineCore.csproj" />
         
         <PackageReference Include="coverlet.collector" Version="6.0.0"/>
         

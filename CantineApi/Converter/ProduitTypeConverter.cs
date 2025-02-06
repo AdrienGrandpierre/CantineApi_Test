@@ -1,6 +1,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using CantineApi.Models;
+using CantineCore.Models;
 
 namespace CantineApi.Converter;
 

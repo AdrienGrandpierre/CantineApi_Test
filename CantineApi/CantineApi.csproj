@@ -20,4 +20,8 @@
       <Folder Include="Repositories\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CantineCore\CantineCore.csproj" />
+    </ItemGroup>
+
 </Project>

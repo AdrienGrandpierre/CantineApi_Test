@@ -1,6 +1,6 @@
-using CantineApi.Models;
+using CantineCore.Models;
 
-namespace CantineApi.Services;
+namespace CantineCore.Services;
 
 public interface IClientService
 {
