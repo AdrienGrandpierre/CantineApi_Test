@@ -24,7 +24,7 @@ public class ClientController : ControllerBase
     {
         try
         {
-            return Ok(_clientService.GetClientById(id));
+            return Ok(_clientService.GetClientByIdAsync(id));
         }
         catch (Exception ex)
         {
@@ -39,7 +39,7 @@ public class ClientController : ControllerBase
     {
         try
         {
-            _clientService.CreditClient(id, amount);
+            _clientService.UpdateClientCreditsAsync(id, amount);
             return NoContent();
         }
         catch (Exception ex)
@@ -53,6 +53,6 @@ public class ClientController : ControllerBase
     // Retourne une réponse HTTP 200 contenant la liste des clients.
     public ActionResult<List<Client>> GetAllClients()
     {
-        return Ok(_clientService.GetAllClients());
+        return Ok(_clientService.GetAllClientsAsync());
     }
 }

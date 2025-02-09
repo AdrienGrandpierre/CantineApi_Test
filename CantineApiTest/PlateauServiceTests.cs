@@ -1,6 +1,6 @@
 using CantineCore.Models;
 using CantineCore.Models.Requests;
-using CantineCore.Services;
+using CantineInfrastructure.Services;
 using Moq;
 
 namespace CantineApiTest;

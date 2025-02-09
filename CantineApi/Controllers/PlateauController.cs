@@ -25,13 +25,15 @@ public class PlateauController : ControllerBase
     {
         try
         {
-            var plateau = _plateauService.CreatePlateau(request);
+            var plateau =  _plateauService.CreatePlateau(request).Result;
 
             return Ok(new
             {
                 Produits = request.ProduitRequests.Select(x => x.Name),
                 Total = plateau.Total,
-                PriseEnCharge = plateau.PriseEnCharge
+                PriseEnCharge = plateau.PriseEnCharge,
+                NouveauCredit = plateau.NewCredit,
+                
             });
         }
         catch (Exception ex)

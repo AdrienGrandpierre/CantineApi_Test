@@ -1,7 +1,7 @@
 using System.Net;
 using CantineApi.Controllers;
 using CantineCore.Models;
-using CantineCore.Services;
+using CantineInfrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
@@ -40,7 +40,7 @@ public class ClientControllerTests : BaseTest
         // Arrange
         var clientId = 1;
         var client = new Client { Id = clientId, Name = "John Doe" };
-        _clientServiceMock.Setup(s => s.GetClientById(clientId)).Returns(client);
+        _clientServiceMock.Setup(s => s.GetClientByIdAsync(clientId)).Returns(Task.FromResult(client));
 
         // Act
         var result = _controller.GetClientById(clientId);
@@ -55,7 +55,7 @@ public class ClientControllerTests : BaseTest
     {
         // Arrange
         var clientId = 1;
-        _clientServiceMock.Setup(s => s.GetClientById(clientId)).Throws(new KeyNotFoundException());
+        _clientServiceMock.Setup(s => s.GetClientByIdAsync(clientId)).Throws(new KeyNotFoundException());
 
         // Act
         var result = _controller.GetClientById(clientId);
@@ -74,7 +74,7 @@ public class ClientControllerTests : BaseTest
             new Client { Id = 1, Name = "John Doe" },
             new Client { Id = 2, Name = "Jane Smith" }
         };
-        _clientServiceMock.Setup(s => s.GetAllClients()).Returns(clients);
+        _clientServiceMock.Setup(s => s.GetAllClientsAsync().Result).Returns(clients);
 
         // Act
         var result = _controller.GetAllClients();

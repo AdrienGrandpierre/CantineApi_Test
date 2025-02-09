@@ -2,7 +2,7 @@ using System.Net;
 using CantineApi.Controllers;
 using CantineCore.Models;
 using CantineCore.Models.Requests;
-using CantineCore.Services;
+using CantineInfrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 
