@@ -5,4 +5,4 @@ obj/
 # Rider IDE
 .idea/
 *.iml
-*.user
+*.sln.DotSettings.user
